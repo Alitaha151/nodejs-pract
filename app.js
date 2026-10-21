@@ -1,0 +1,419 @@
+const express = require('express');
+const server = express();
+// const mongoose = require('mongoose');
+
+
+
+server.get('/', (req, res) => {
+    res.send("Hello World");
+});
+
+server.get('/about', (req, res) => {
+    res.send("About Page");
+});
+
+server.get('/contact', (req, res) => {
+    res.send("Contact Page");
+});
+
+server.get('/services', (req, res) => {
+    res.send("Services Page");
+});
+
+server.get('/products', (req, res) => {
+    res.json([
+  {
+    "id": 1,
+    "name": "Classic Oversized Shirt",
+    "category": "Men",
+    "price": 59,
+    "oldPrice": 79,
+    "rating": 4.9,
+    "reviews": 124,
+    "badge": "Best Seller",
+    "short_desc": "Relaxed oversized shirt offering timeless style and everyday comfort.",
+    "long_description": "Designed with a relaxed oversized silhouette, this classic shirt combines effortless style with everyday comfort. Its versatile design makes it perfect for casual outings, weekend looks, and easy layering throughout the year.",
+    "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 2,
+    "name": "Minimal Everyday Dress",
+    "category": "Women",
+    "price": 89,
+    "oldPrice": 119,
+    "rating": 4.8,
+    "reviews": 98,
+    "badge": "New",
+    "short_desc": "Elegant everyday dress designed for effortless comfort and modern simplicity.",
+    "long_description": "A beautifully minimal dress created for women who appreciate clean silhouettes and effortless elegance. The comfortable design transitions easily from daytime activities to casual evening occasions.",
+    "image": "https://plus.unsplash.com/premium_photo-1776148071906-879cf0afa1cb?q=80&w=387&auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 3,
+    "name": "Essential Leather Sneakers",
+    "category": "Shoes",
+    "price": 79,
+    "oldPrice": 99,
+    "rating": 4.9,
+    "reviews": 156,
+    "badge": "Popular",
+    "short_desc": "Premium leather sneakers combining clean design with lasting daily comfort.",
+    "long_description": "These essential leather sneakers bring together a clean aesthetic and dependable comfort. Their versatile appearance pairs effortlessly with jeans, trousers, shorts, and everyday casual outfits.",
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 4,
+    "name": "Classic Leather Watch",
+    "category": "Accessories",
+    "price": 129,
+    "oldPrice": 159,
+    "rating": 4.7,
+    "reviews": 76,
+    "badge": "Limited",
+    "short_desc": "Timeless leather watch adding sophisticated detail to every outfit.",
+    "long_description": "A timeless accessory featuring a refined leather-inspired look and classic styling. This watch adds a sophisticated finishing touch to both smart and casual outfits while remaining easy to wear daily.",
+    "image": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 5,
+    "name": "Premium Cotton T-Shirt",
+    "category": "Men",
+    "price": 39,
+    "oldPrice": 49,
+    "rating": 4.8,
+    "reviews": 87,
+    "badge": "Sale",
+    "short_desc": "Soft premium cotton t-shirt made for comfortable everyday wear.",
+    "long_description": "Crafted for everyday versatility, this premium cotton t-shirt delivers a soft feel and comfortable fit. Its simple design makes it an essential foundation for casual wardrobes and layered outfits.",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 6,
+    "name": "Relaxed Linen Outfit",
+    "category": "Women",
+    "price": 95,
+    "oldPrice": 125,
+    "rating": 4.9,
+    "reviews": 63,
+    "badge": "New",
+    "short_desc": "Lightweight linen outfit offering relaxed style and breathable comfort.",
+    "long_description": "Perfect for warm days, this relaxed linen outfit offers a lightweight feel and effortlessly stylish appearance. Its breathable-inspired design is ideal for vacations, casual gatherings, and everyday summer dressing.",
+    "image": "https://images.unsplash.com/photo-1671866683421-b424d9b86c6c?q=85&w=900&auto=format&fit=crop"
+  },
+  {
+    "id": 7,
+    "name": "Classic White Sneakers",
+    "category": "Shoes",
+    "price": 69,
+    "oldPrice": 89,
+    "rating": 4.8,
+    "reviews": 112,
+    "badge": "Popular",
+    "short_desc": "Clean white sneakers offering versatile style for everyday outfits.",
+    "long_description": "A wardrobe staple built around a clean white aesthetic and versatile everyday styling. These sneakers complement almost any casual outfit and are easy to incorporate into modern minimalist wardrobes.",
+    "image": "https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 8,
+    "name": "Minimal Leather Bag",
+    "category": "Accessories",
+    "price": 109,
+    "oldPrice": 139,
+    "rating": 4.9,
+    "reviews": 91,
+    "badge": "Best Seller",
+    "short_desc": "Minimal leather bag designed for stylish everyday essentials.",
+    "long_description": "This minimal leather-inspired bag combines practical everyday storage with a refined appearance. Its understated design works beautifully with casual, professional, and smart-casual outfits.",
+    "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 9,
+    "name": "Tailored Casual Blazer",
+    "category": "Men",
+    "price": 119,
+    "oldPrice": 149,
+    "rating": 4.8,
+    "reviews": 72,
+    "badge": "Trending",
+    "short_desc": "Modern tailored blazer balancing polished style with relaxed comfort.",
+    "long_description": "A modern blazer designed to add polished structure without sacrificing relaxed comfort. Wear it over shirts, t-shirts, or lightweight knitwear for versatile smart-casual styling.",
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 10,
+    "name": "Soft Knit Sweater",
+    "category": "Women",
+    "price": 74,
+    "oldPrice": 99,
+    "rating": 4.7,
+    "reviews": 84,
+    "badge": "Popular",
+    "short_desc": "Soft knit sweater delivering cozy warmth with effortless style.",
+    "long_description": "A cozy knit sweater made for comfortable everyday layering. Its simple silhouette creates an effortlessly stylish look while providing the warmth you need during cooler days and evenings.",
+    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 11,
+    "name": "Everyday Running Shoes",
+    "category": "Shoes",
+    "price": 85,
+    "oldPrice": 110,
+    "rating": 4.8,
+    "reviews": 138,
+    "badge": "Best Seller",
+    "short_desc": "Lightweight running shoes built for comfortable active everyday movement.",
+    "long_description": "Designed for active everyday lifestyles, these lightweight running shoes provide a comfortable foundation for walking, casual workouts, and daily movement. Their sporty appearance keeps your look fresh and practical.",
+    "image": "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 12,
+    "name": "Structured Shoulder Bag",
+    "category": "Accessories",
+    "price": 99,
+    "oldPrice": 129,
+    "rating": 4.8,
+    "reviews": 65,
+    "badge": "New",
+    "short_desc": "Structured shoulder bag combining elegant design with practical storage.",
+    "long_description": "This structured shoulder bag offers an elegant shape with practical space for everyday essentials. Its sophisticated appearance makes it suitable for workdays, dinners, shopping trips, and casual occasions.",
+    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 13,
+    "name": "Relaxed Denim Jacket",
+    "category": "Men",
+    "price": 89,
+    "oldPrice": 115,
+    "rating": 4.8,
+    "reviews": 93,
+    "badge": "Trending",
+    "short_desc": "Relaxed denim jacket offering timeless layering for casual outfits.",
+    "long_description": "A timeless denim jacket with a relaxed silhouette that makes layering effortless. Pair it with basic tees, shirts, chinos, or jeans to create dependable casual looks.",
+    "image": "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 14,
+    "name": "Gray Long Sleeve Dress",
+    "category": "Women",
+    "price": 64,
+    "oldPrice": 85,
+    "rating": 4.7,
+    "reviews": 58,
+    "badge": "New",
+    "short_desc": "Elegant long sleeve dress adding refined shine to evening looks.",
+    "long_description": "An elegant long sleeve dress designed to bring subtle sophistication to your wardrobe. Its refined appearance works beautifully with tailored trousers, or denim for elevated evening styling.",
+    "image": "https://images.unsplash.com/photo-1629936060120-e38e75bb2784?q=85&w=900&auto=format&fit=crop"
+  },
+  {
+    "id": 15,
+    "name": "Classic Chelsea Boots",
+    "category": "Shoes",
+    "price": 109,
+    "oldPrice": 139,
+    "rating": 4.9,
+    "reviews": 104,
+    "badge": "Best Seller",
+    "short_desc": "Classic Chelsea boots delivering timeless style and versatile comfort.",
+    "long_description": "These classic Chelsea boots offer timeless styling with a versatile silhouette. Easy to pair with jeans, trousers, and smart-casual outfits, they are a reliable choice across multiple seasons.",
+    "image": "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 16,
+    "name": "Slim Metal Sunglasses",
+    "category": "Accessories",
+    "price": 49,
+    "oldPrice": 69,
+    "rating": 4.6,
+    "reviews": 49,
+    "badge": "Sale",
+    "short_desc": "Slim metal sunglasses adding modern character to everyday outfits.",
+    "long_description": "Featuring a sleek metal-inspired frame and contemporary shape, these sunglasses add a modern finishing touch to everyday outfits. Their understated design makes them easy to style across different looks.",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 17,
+    "name": "Premium Oversized Hoodie",
+    "category": "Men",
+    "price": 79,
+    "oldPrice": 99,
+    "rating": 4.9,
+    "reviews": 117,
+    "badge": "Popular",
+    "short_desc": "Premium oversized hoodie combining cozy comfort with modern streetwear.",
+    "long_description": "A premium oversized hoodie created for relaxed comfort and modern streetwear styling. Its roomy silhouette makes it perfect for casual weekends, travel days, and effortless layered outfits.",
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 18,
+    "name": "Black Abaya with Jewelry",
+    "category": "Women",
+    "price": 69,
+    "oldPrice": 89,
+    "rating": 4.8,
+    "reviews": 61,
+    "badge": "Trending",
+    "short_desc": "Black Abaya with Jewelry creating feminine movement with effortless elegance.",
+    "long_description": "This Black Abaya with Jewelry creates an elegant silhouette with natural movement. Pair it with simple tops, sweaters to create feminine looks suitable for everyday and special occasions.",
+    "image": "https://plus.unsplash.com/premium_photo-1776296624489-73957e54bcef?q=85&w=900&auto=format&fit=crop"
+  },
+  {
+    "id": 19,
+    "name": "Minimal Slip-On Sneakers",
+    "category": "Shoes",
+    "price": 59,
+    "oldPrice": 79,
+    "rating": 4.7,
+    "reviews": 89,
+    "badge": "Popular",
+    "short_desc": "Minimal slip-on sneakers offering easy wear and everyday versatility.",
+    "long_description": "Designed for convenience and everyday versatility, these minimal slip-on sneakers make getting ready effortless. Their clean aesthetic pairs well with casual trousers, denim, shorts, and relaxed outfits.",
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": 20,
+    "name": "Classic Canvas Backpack",
+    "category": "Accessories",
+    "price": 79,
+    "oldPrice": 99,
+    "rating": 4.8,
+    "reviews": 74,
+    "badge": "New",
+    "short_desc": "Classic canvas backpack designed for practical everyday carrying.",
+    "long_description": "A classic canvas-inspired backpack designed for practical everyday carrying. Its versatile shape provides convenient space for daily essentials while maintaining a clean and casual appearance.",
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85"
+  }
+]);
+});
+
+server.get('/blog', (req, res) => {
+    res.send("Blog Page");
+});
+
+server.get('/faq', (req, res) => {
+    res.send("FAQ Page");
+});
+
+server.get('/terms', (req, res) => {
+    res.send("Terms and Conditions Page");
+});
+
+server.get('/privacy', (req, res) => {
+    res.send("Privacy Policy Page");
+});
+
+server.get('/login', (req, res) => {
+    res.send("Login Page");
+});
+
+server.get('/register', (req, res) => {
+    res.send("Register Page");
+});
+
+server.get('/dashboard', (req, res) => {
+    res.send("Dashboard Page");
+});
+
+server.get('/profile', (req, res) => {
+    res.send("Profile Page");
+});
+
+server.get('/settings', (req, res) => {
+    res.send("Settings Page");
+});
+
+server.get('/logout', (req, res) => {
+    res.send("Logout Page");
+});
+
+server.get('/help', (req, res) => {
+    res.send("Help Page");
+});
+
+server.get('/support', (req, res) => {
+    res.send("Support Page");
+});
+
+server.get('/feedback', (req, res) => {
+    res.send("Feedback Page");
+});
+
+server.get('/careers', (req, res) => {
+    res.send("Careers Page");
+});
+
+server.get('/news', (req, res) => {
+    res.send("News Page");
+});
+
+server.get('/events', (req, res) => {
+    res.send("Events Page");
+});
+
+server.get('/gallery', (req, res) => {
+    res.send("Gallery Page");
+});
+
+server.get('/testimonials', (req, res) => {
+    res.send("Testimonials Page");
+});
+
+server.get('/partners', (req, res) => {
+    res.send("Partners Page");
+});
+
+server.get('/resources', (req, res) => {
+    res.send("Resources Page");
+});
+
+server.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log("Testing");
+// console.log("Taha");
+// console.log(3+5);
+// console.log(__dirname)
+// console.log(__filename)
+
+// const math = require('./math');
+// console.log(math.add(5, 5)); // 10
+// console.log(math.subtract(5, 3)); // 2
+
+
